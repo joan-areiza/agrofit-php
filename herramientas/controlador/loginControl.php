@@ -54,11 +54,12 @@ if (realpath(__FILE__) === realpath($_SERVER["SCRIPT_FILENAME"])) {
     if ($opcion === '') {
         $opcion = entrada($_GET, 'opcion');
     }
+    $tipoDocUsu = trim(entrada($_POST, 'tipoDocUsu'));
     $documentoUsu = trim(entrada($_POST, 'documentoUsu'));
     //usted decide cual dejar			
     //$claveUsu  = entrada($_POST, 'claveUsu'); // no quita espacios. la clave puede tener espacios.
     $claveUsu = trim(entrada($_POST, 'claveUsu'));// si quita espacios. pueda que presente problemas, al ingresar la clave y el sistema quita espacios.
-    if (isset($opcion) && isset($documentoUsu) && isset($claveUsu)) {
+    if (isset($opcion) && isset($tipoDocUsu) && isset($documentoUsu) && isset($claveUsu)) {
         try {
             switch ($opcion) {
                 case 'iniciarLogueo':
@@ -76,6 +77,7 @@ if (realpath(__FILE__) === realpath($_SERVER["SCRIPT_FILENAME"])) {
                             FROM usuarios usu
                             INNER JOIN roles rl ON rl.id_rol_pk = usu.id_rol_usuario_fk
                             WHERE usu.numero_documento_usuario = ?
+                            AND usu.cod_tipo_documento_usuario_fk = ?
                             AND usu.clave_usuario = ?";
                     /*$resultQuery = $conexion->prepare($query);
                     $resultQuery->bind_param("ss", $correoUsu, $claveUsu);
@@ -95,7 +97,7 @@ if (realpath(__FILE__) === realpath($_SERVER["SCRIPT_FILENAME"])) {
                     $resultQuery->close();*/
                     $resultQuery = $conexion->prepare($query);
                     // En PDO, los parámetros se pasan en un array directamente dentro de execute()
-                    $resultQuery->execute([$documentoUsu, $claveUsu]);
+                    $resultQuery->execute([$documentoUsu, $tipoDocUsu,  $claveUsu]);
                     // Recorrer los resultados utilizando el método nativo de PDO
                     while ($datos_fila = $resultQuery->fetch(PDO::FETCH_ASSOC)) {
                         session_regenerate_id(true);
