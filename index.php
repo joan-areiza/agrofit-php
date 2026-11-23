@@ -282,7 +282,7 @@
                     <div class="input-box select-box">
                         <span class="icon"><ion-icon name="chevron-down"></ion-icon></span>
                         <select id="login-document-type" name="login-document-type" required>
-                            <option value="" disabled selected>Seleccione su tipo de documento</option>
+                            <option value="" selected>Seleccione su tipo de documento</option>
                             <option value="CC">Cédula de Ciudadanía</option>
                             <option value="TI">Tarjeta de Identidad</option>
                             <option value="CE">Cédula de Extranjería</option>
@@ -339,7 +339,7 @@
                     <div class="input-box select-box">
                         <span class="icon"><ion-icon name="chevron-down"></ion-icon></span>
                         <select id="register-document-type" name="register-document-type" required>
-                            <option value="" disabled selected>Seleccione su tipo de documento</option>
+                            <option value="" selected>Seleccione su tipo de documento</option>
                             <option value="CC">Cédula de Ciudadanía</option>
                             <option value="TI">Tarjeta de Identidad</option>
                             <option value="CE">Cédula de Extranjería</option>
