@@ -265,7 +265,7 @@
 
     <section class="cta contact" id="contact">
         <h1 data-reveal="scale-in">Plataforma Deportiva Oficial SENA • AGROFIT</h1>
-        <a href="herramientas/vistas/contact.php" class="hero-btn">Contactar</a>
+        <a href="herramientas/vistas/contacto/contact.php" class="hero-btn">Contactar</a>
     </section>
 
     <!-- Modal -->

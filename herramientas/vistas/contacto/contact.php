@@ -6,39 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Rutas CSS actualizadas a herramientas/css/ -->
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/variables.css">
-    <link rel="stylesheet" href="../css/fonts.css">
-    <link rel="stylesheet" href="../css/general.css">
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/buttons.css">
-    <link rel="stylesheet" href="../css/modal.css">
-    <link rel="stylesheet" href="../css/scroll.css">
-    <link rel="stylesheet" href="../css/loader.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/responsive.css">
-    <link rel="stylesheet" href="../css/reveal.css">
-    <link rel="stylesheet" href="../css/contacto/contact.css"> <!-- Ajustado si contact.css está en herramientas/css/contacto/ -->
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/fonts.css">
+    <link rel="stylesheet" href="../../css/general.css">
+    <link rel="stylesheet" href="../../css/navbar.css">
+    <link rel="stylesheet" href="../../css/buttons.css">
+    <link rel="stylesheet" href="../../css/modal.css">
+    <link rel="stylesheet" href="../../css/scroll.css">
+    <link rel="stylesheet" href="../../css/loader.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/contacto/contact.css"> <!-- Ajustado si contact.css está en herramientas/css/contacto/ -->
 
     <title>Agrofit</title>
     <!-- Favicon actualizado a assets/img/ -->
-    <link rel="icon" type="image/png" href="../../assets/img/sena-logo.png">
+    <link rel="icon" type="image/png" href="../../../assets/img/sena-logo.png">
 </head>
 
 <body>
     <header class="header">
         <div class="header-top">
             <div class="logo">
-                <a href="../../index.php">
-                    <img src="../../assets/img/agrofit-logo.png" alt="Logo de la plataforma" class="logo-agrofit">
+                <a href="../../../index.php">
+                    <img src="../../../assets/img/agrofit-logo.png" alt="Logo de la plataforma" class="logo-agrofit">
                 </a>
             </div>
 
             <nav>
                 <div class="navbar-links">
                     <ul>
-                        <li><a href="../../index.php">INICIO</a></li>
-                        <li><a href="about.php">ACERCA DE</a></li>
+                        <li><a href="../../../index.php">INICIO</a></li>
+                        <li><a href="../about.php">ACERCA DE</a></li>
                         <li><a href="contact.php">UBICACIÓN & CONTACTO</a></li>
                     </ul>
                 </div>
@@ -59,7 +59,7 @@
                 <ion-icon name="close"></ion-icon>
             </a>
             <div class="overlay-content">
-                <a href="../../index.php">INICIO</a>
+                <a href="../../../index.php">INICIO</a>
                 <a href="about.php">ACERCA DE</a>
                 <a href="contact.php">UBICACIÓN & CONTACTO</a>
             </div>
@@ -420,11 +420,11 @@
     </footer>
 
     <!-- Rutas JS actualizadas a herramientas/js/ -->
-    <script type="text/javascript" src="../js/reveal.js"></script>
-    <script type="text/javascript" src="../js/contact.js"></script> <!-- Ajustado si contact.js está en herramientas/js/ -->
-    <script type="text/javascript" src="../js/navbar.js"></script>
-    <script type="text/javascript" src="../js/map.js"></script>
-    <script type="text/javascript" src="../js/modal.js"></script>
+    <script type="text/javascript" src="../../js/reveal.js"></script>
+    <script type="text/javascript" src="../../js/contact.js"></script> <!-- Ajustado si contact.js está en herramientas/js/ -->
+    <script type="text/javascript" src="../../js/navbar.js"></script>
+    <script type="text/javascript" src="../../js/map.js"></script>
+    <script type="text/javascript" src="../../js/modal.js"></script>
 
     <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>

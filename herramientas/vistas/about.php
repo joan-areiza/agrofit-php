@@ -39,7 +39,7 @@
                     <ul>
                         <li><a href="../../index.php">INICIO</a></li>
                         <li><a href="about.php">ACERCA DE</a></li>
-                        <li><a href="contact.php">UBICACIÓN & CONTACTO</a></li>
+                        <li><a href="contacto/contact.php">UBICACIÓN & CONTACTO</a></li>
                     </ul>
                 </div>
             </nav>
@@ -62,7 +62,7 @@
             <div class="overlay-content">
                 <a href="../../index.php">INICIO</a>
                 <a href="about.php">ACERCA DE</a>
-                <a href="contact.php">UBICACIÓN & CONTACTO</a>
+                <a href="contacto/contact.php">UBICACIÓN & CONTACTO</a>
             </div>
         </div>
 
