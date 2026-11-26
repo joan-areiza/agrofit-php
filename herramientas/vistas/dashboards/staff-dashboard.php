@@ -8,359 +8,383 @@
   <!-- Favicon actualizado a assets/img/ -->
   <link rel="icon" type="image/png" href="../../../assets/img/sena-logo.png">
 
-  <!-- ==================== BASE ==================== -->
-  <!-- Reset -->
-  <link rel="stylesheet" href="../../css/reset.css">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-  <!-- Variables -->
-  <link rel="stylesheet" href="../../css/variables.css">
-
-  <!-- Fonts -->
-  <link rel="stylesheet" href="../../css/fonts.css">
-
-  <!-- Estilos generales -->
-  <link rel="stylesheet" href="../../css/general.css">
-
-  <!-- ==================== COMPONENTES ==================== -->
-  <!-- Sidebar / Menú lateral -->
-  <link rel="stylesheet" href="../../css/sidebar.css">
-
-  <!-- Botones -->
-  <link rel="stylesheet" href="../../css/buttons.css">
-
-  <!-- Scroll -->
-  <link rel="stylesheet" href="../../css/scroll.css">
-
-  <!-- Footer -->
-  <link rel="stylesheet" href="../../css/footer.css">
-
-  <!-- ==================== FRAMEWORKS ==================== -->
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-
-  <!-- ==================== RESPONSIVE ==================== -->
-  <link rel="stylesheet" href="../../css/responsive.css">
-
-  <!-- ==================== PÁGINA ==================== -->
-  <!-- Bienvenida -->
-  <link rel="stylesheet" href="../../css/dashboards/staff-dashboard.css">
 </head>
 
-<body>
+<body class="bg-white text-success min-vh-100 d-flex flex-column">
+  <header class="navbar navbar-expand-lg navbar-dark bg-success sticky-top shadow-sm py-3">
+    <div class="container-fluid px-4">
+      <div class="d-flex align-items-center gap-3">
+        <a class="navbar-brand d-flex align-items-center m-0" href="../../../index.php">
+          <img src="../../../assets/img/agrofit-logo.png" alt="Logo de la plataforma" class="logo-agrofit" height="50">
+        </a>
 
-  <!-- Botón que despliega/oculta la barra lateral en pantallas pequeñas -->
-  <button class="menu-movil" id="menuMovil" aria-label="Toggle navigation">
-    Menú
-  </button>
-
-  <!-- Fondo oscuro que aparece detrás del menú cuando está abierto en móvil -->
-  <div class="superposicion" id="superposicion"></div>
-
-  <!-- Barra lateral: menú principal de navegación -->
-  <aside class="barra-lateral" id="barraLateral">
-
-    <!-- Encabezado: logo + nombre del funcionario -->
-    <div class="encabezado-barra-lateral">
-      <div class="marca-barra-lateral" id="btnPerfil" role="button" tabindex="0">
-        <div class="icono-perfil">
-          <ion-icon name="person"></ion-icon>
-        </div>
-        <div class="info-perfil-texto">
-          <span class="version-marca">
+        <div class="marca-barra-lateral d-flex align-items-center gap-2 text-white" id="btnPerfil" role="button" tabindex="0">
+          <span class="icono-perfil d-inline-flex align-items-center justify-content-center bg-white text-success rounded-circle fs-5"
+            >
+            <ion-icon name="person"></ion-icon>
+          </span>
+          <span class="version-marca fw-semibold text-white">
             <?php session_start();	echo $_SESSION['loginUsuSesion']; ?>
           </span>
         </div>
       </div>
-    </div>
 
-    <!-- Navegación: enlaces a cada módulo/sección de la plataforma -->
-    <nav class="nav-barra-lateral">
+      <button class="menu-movil navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobile-menu"
+        aria-controls="mobile-menu" aria-label="Menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-      <div class="item-nav">
-        <a href="staff-dashboard.php" class="enlace-nav activo">
-          <ion-icon name="home"></ion-icon> Recepción & Funcionario
-        </a>
+      <div class="collapse navbar-collapse justify-content-end">
+        <div class="header-buttons d-flex gap-2">
+          <button type="button" class="btn btn-outline-light rounded-pill px-4 fw-semibold"
+            data-bs-toggle="modal" data-bs-target="#modalPerfil">Mi Perfil</button>
+          <a href="../../controlador/loginControl.php?opcion=salir"
+            class="btn btn-light text-success rounded-pill px-4 fw-semibold btn-logout" id="btnLogout">Cerrar Sesión</a>
+        </div>
       </div>
+    </div>
+  </header>
 
-      <div class="item-nav">
-        <a href="#" class="enlace-nav">
+  <div class="offcanvas offcanvas-end bg-success text-white" tabindex="-1" id="mobile-menu"
+    aria-labelledby="mobileMenuLabel">
+    <div class="offcanvas-header border-bottom border-white">
+      <h5 class="offcanvas-title fw-bold text-white" id="mobileMenuLabel">AGROFIT • FUNCIONARIO</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column justify-content-between py-4">
+      <nav class="nav-barra-lateral d-flex flex-column gap-2">
+        <a href="staff-dashboard.php" class="enlace-nav activo nav-link bg-white text-success fw-bold rounded-pill px-3 py-2 d-flex align-items-center gap-2">
+          <ion-icon name="home"></ion-icon> Recepción &amp; Funcionario
+        </a>
+        <a href="#" class="enlace-nav nav-link text-white fw-semibold rounded-pill px-3 py-2 d-flex align-items-center gap-2">
           <ion-icon name="checkmark-circle"></ion-icon> Asistencia
         </a>
-      </div>
-
-      <div class="item-nav">
-        <a href="#" class="enlace-nav">
+        <a href="#" class="enlace-nav nav-link text-white fw-semibold rounded-pill px-3 py-2 d-flex align-items-center gap-2">
           <ion-icon name="mail-unread"></ion-icon> Mensajes
         </a>
-      </div>
-
-      <!-- Cierre de sesión: redirige al login e invoca confirmación vía SweetAlert2 -->
-      <div class="item-nav">
-        <a href="../../controlador/loginControl.php?opcion=salir" class="enlace-nav btn-logout" id="btnLogout">
+        <a href="../../controlador/loginControl.php?opcion=salir"
+          class="enlace-nav btn-logout nav-link text-white border border-white fw-semibold rounded-pill px-3 py-2 d-flex align-items-center gap-2 mt-2">
           <ion-icon name="exit"></ion-icon> Cerrar Sesión
         </a>
-      </div>
-    </nav>
+      </nav>
 
-    <!-- Pie de la barra lateral: créditos institucionales -->
-    <footer class="pie-barra-lateral">
-      <p>&copy; 2026 Todos los derechos reservados | <a href="https://www.sena.edu.co/" target="_blank">SENA</a> -</p>
-      <a href="#" title="Pagina del SENA" target="_blank">Términos & Privacidad</a>
-    </footer>
-  </aside>
-
-  <!-- Contenido principal: aquí se renderizan las secciones activas -->
-  <main class="principal-doc">
-    <div class="contenido-doc">
-      <!-- ============================================================ -->
-      <!-- SECTION -->
-      <!-- ============================================================ -->
-      <section id="panel-funcionarios" class="panel-container">
-        <div class="banner-hero">
-          <div class="badge-tag">
-            <ion-icon name="shield-checkmark-outline"></ion-icon>
-            Vigilancia y Seguridad • AGROFIT SENA
-          </div>
-          <h1 class="banner-titulo">Panel Operativo de Funcionarios</h1>
-          <p class="banner-descripcion">
-            Plataforma para control de accesos por torniquete, protocolos de desinfección e higiene, apoyo en sala y
-            supervisión de aforo del Centro de Formación.
-          </p>
-        </div>
-
-        <div class="carrusel-metricas-wrapper">
-          <button class="carrusel-btn prev" id="btnPrev" aria-label="Anterior">
-            <ion-icon name="chevron-back-outline"></ion-icon>
-          </button>
-
-          <div class="carrusel-contenedor" id="carruselMetricas">
-            <div class="tarjeta-metrica">
-              <div class="metrica-info">
-                <span class="metrica-label">AFORO EN SALA</span>
-                <div class="metrica-valor">24 <span>/ 45</span></div>
-                <span class="metrica-subtexto">53% de capacidad</span>
-              </div>
-              <div class="metrica-icono icono-verde-claro">
-                <ion-icon name="time-outline"></ion-icon>
-              </div>
-            </div>
-
-            <div class="tarjeta-metrica">
-              <div class="metrica-info">
-                <span class="metrica-label">INGRESOS VALIDADOS HOY</span>
-                <div class="metrica-valor">74</div>
-                <span class="metrica-subtexto">Jornada Mañana & Tarde</span>
-              </div>
-              <div class="metrica-icono icono-verde-claro">
-                <ion-icon name="person-outline"></ion-icon>
-              </div>
-            </div>
-
-            <div class="tarjeta-metrica">
-              <div class="metrica-info">
-                <span class="metrica-label">MÁQUINAS DESINFECTADAS</span>
-                <div class="metrica-valor" id="contadorDesinfectadas">4 <span>/ 6</span></div>
-                <span class="metrica-subtexto">Protocolo de higiene al 100%</span>
-              </div>
-              <div class="metrica-icono icono-verde-claro">
-                <ion-icon name="brush-outline"></ion-icon>
-              </div>
-            </div>
-          </div>
-
-          <button class="carrusel-btn next" id="btnNext" aria-label="Siguiente">
-            <ion-icon name="chevron-forward-outline"></ion-icon>
-          </button>
-        </div>
-
-        <div class="panel-grid-inferior">
-          <div class="card-modulo">
-            <div class="card-encabezado">
-              <ion-icon name="scan-outline" class="card-icono-header"></ion-icon>
-              <h2>Control Rápido de Ingreso</h2>
-            </div>
-            <p class="card-instruccion">Verifica el carnet del aprendiz o funcionario digitando su número de documento.</p>
-
-            <form class="form-busqueda" id="formIngreso" onsubmit="return false;">
-              <input type="text" id="documentoInput" placeholder="Ej. 1098765432" required />
-              <button type="submit" class="btn-validar">
-                <ion-icon name="search-outline"></ion-icon> Validar
-              </button>
-            </form>
-            <div id="mensajeIngreso" class="mensaje-resultado"></div>
-          </div>
-
-          <div class="card-modulo">
-            <div class="card-encabezado">
-              <ion-icon name="key-outline" class="card-icono-header"></ion-icon>
-              <h2>Checklist Rápido de Higiene</h2>
-            </div>
-            <p class="card-instruccion">Marca las estaciones desinfectadas antes del siguiente bloque de entrenamiento.</p>
-
-            <div class="lista-higiene-scroll">
-              <div class="item-higiene completado" data-id="1">
-                <div class="higiene-detalles">
-                  <strong>Prensa de Piernas 45° Profesional</strong>
-                  <span>Zona de Fuerza Inferior - Módulo A</span>
-                </div>
-                <button class="btn-estado-higiene" onclick="toggleHigiene(this)">
-                  <ion-icon name="checkmark-outline"></ion-icon> Lista
-                </button>
-              </div>
-
-              <div class="item-higiene completado" data-id="2">
-                <div class="higiene-detalles">
-                  <strong>Máquina Multifuerza Smith</strong>
-                  <span>Zona Central de Fuerza</span>
-                </div>
-                <button class="btn-estado-higiene" onclick="toggleHigiene(this)">
-                  <ion-icon name="checkmark-outline"></ion-icon> Lista
-                </button>
-              </div>
-
-              <div class="item-higiene pendiente" data-id="3">
-                <div class="higiene-detalles">
-                  <strong>Polea Doble Crossover Ajustable</strong>
-                  <span>Zona Funcional y Cables</span>
-                </div>
-                <button class="btn-estado-higiene" onclick="toggleHigiene(this)">Pendiente</button>
-              </div>
-
-              <div class="item-higiene pendiente" data-id="4">
-                <div class="higiene-detalles">
-                  <strong>Banco Plano Olímpico de Pecho</strong>
-                  <span>Zona de Pesas Libres</span>
-                </div>
-                <button class="btn-estado-higiene" onclick="toggleHigiene(this)">Pendiente</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <!-- ============================================================ -->
-  <!-- MODAL DE PERFIL & DATOS DE CONTACTO -->
-  <!-- ============================================================ -->
-  <div class="modal-overlay" id="modalPerfilOverlay">
-    <div class="modal-perfil-container">
-      <!-- Encabezado del Modal -->
-      <div class="modal-perfil-header">
-        <div class="header-info">
-          <div class="header-icon">
-            <ion-icon name="person-outline"></ion-icon>
-          </div>
-          <div>
-            <h2>Mi Perfil & Datos de Contacto</h2>
-            <p>Actualiza tus canales de notificación y bioseguridad</p>
-          </div>
-        </div>
-        <button class="btn-close-modal" id="btnClosePerfil" aria-label="Cerrar modal">&times;</button>
-      </div>
-
-      <!-- Cuerpo del Modal -->
-      <div class="modal-perfil-body">
-
-        <!-- Sección: Foto de Perfil -->
-        <div class="card-seccion flex-row align-center">
-          <div class="avatar-preview">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
-              alt="Foto de perfil">
-          </div>
-          <div class="avatar-actions">
-            <span class="seccion-label">Fotografía del Perfil</span>
-            <div class="button-group">
-              <button class="btn-secondary-outline">
-                <ion-icon name="camera-outline"></ion-icon> Cambiar Foto
-              </button>
-              <button class="btn-danger-outline">
-                <ion-icon name="trash-outline"></ion-icon> Quitar
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sección: Información Personal (Solo lectura) -->
-        <div class="card-seccion grid-info">
-          <div class="info-item">
-            <span class="info-label">NOMBRES Y APELLIDOS</span>
-            <strong class="info-value">Jairo Andrés Pérez Gómez</strong>
-          </div>
-          <div class="info-item">
-            <span class="info-label">DOCUMENTO</span>
-            <strong class="info-value">CC 1002345678</strong>
-          </div>
-          <div class="info-item">
-            <span class="info-label">FICHA DE FORMACIÓN</span>
-            <strong class="info-value highlight-green">2694520</strong>
-          </div>
-          <div class="info-item">
-            <span class="info-label">ROL EN EL SISTEMA</span>
-            <strong class="info-value">Funcionario</strong>
-          </div>
-        </div>
-
-        <!-- Sección: Formulario de Contacto -->
-        <form id="formPerfil" class="form-perfil">
-          <div class="form-group">
-            <label for="correo">Correo Electrónico (Institucional o Personal) *</label>
-            <div class="input-icon-wrapper">
-              <ion-icon name="mail-outline"></ion-icon>
-              <input type="email" id="correo" value="jairo.perez@misena.edu.co" required>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="telefono">Teléfono Celular *</label>
-            <div class="input-icon-wrapper">
-              <ion-icon name="call-outline"></ion-icon>
-              <input type="tel" id="telefono" value="3124567890" required>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="contactoEmergencia">Contacto de Emergencia / Acudiente</label>
-            <div class="input-icon-wrapper">
-              <ion-icon name="call-outline"></ion-icon>
-              <input type="tel" id="contactoEmergencia" value="3159876543">
-            </div>
-          </div>
-        </form>
-
-        <!-- Sección: Zona de Seguridad -->
-        <div class="card-seccion zona-peligro">
-          <div class="peligro-header">
-            <ion-icon name="warning-outline"></ion-icon>
-            <strong>Zona de Seguridad de Cuenta</strong>
-          </div>
-          <p>Puedes radicar una solicitud formal para cancelar tu cuenta de AGROFIT y transferir tu historial lúdico.</p>
-          <a href="#" class="link-eliminar">Solicitar eliminación permanente de mi cuenta</a>
-        </div>
-
-      </div>
-
-      <!-- Pie del Modal (Acciones) -->
-      <div class="modal-perfil-footer">
-        <button class="btn-cancelar" id="btnCancelPerfil">Cancelar</button>
-        <button class="btn-guardar" type="submit" form="formPerfil">
-          <ion-icon name="save-outline"></ion-icon> Guardar Cambios
-        </button>
+      <div class="pie-barra-lateral pt-3 border-top border-white small text-white">
+        <p class="mb-1">&copy; 2026 Todos los derechos reservados | <a href="https://www.sena.edu.co/" target="_blank" class="text-white fw-semibold text-decoration-none">SENA</a></p>
+        <a href="#" title="Pagina del SENA" target="_blank" class="text-white text-decoration-none">Términos &amp; Privacidad</a>
       </div>
     </div>
   </div>
 
+  <div class="container-fluid flex-grow-1 px-4 py-4">
+    <div class="row g-4">
+      <!-- Barra lateral de navegación en escritorio -->
+      <aside class="col-lg-3 col-xl-2 d-none d-lg-block">
+        <div class="bg-success text-white rounded-4 p-3 shadow-sm h-100 d-flex flex-column justify-content-between">
+          <nav class="nav-barra-lateral d-flex flex-column gap-2">
+            <a href="staff-dashboard.php"
+              class="enlace-nav activo nav-link bg-white text-success fw-bold rounded-pill px-3 py-2 d-flex align-items-center gap-2">
+              <ion-icon name="home"></ion-icon> Recepción &amp; Funcionario
+            </a>
+            <a href="#" class="enlace-nav nav-link text-white fw-semibold rounded-pill px-3 py-2 d-flex align-items-center gap-2">
+              <ion-icon name="checkmark-circle"></ion-icon> Asistencia
+            </a>
+            <a href="#" class="enlace-nav nav-link text-white fw-semibold rounded-pill px-3 py-2 d-flex align-items-center gap-2">
+              <ion-icon name="mail-unread"></ion-icon> Mensajes
+            </a>
+            <a href="../../controlador/loginControl.php?opcion=salir"
+              class="enlace-nav btn-logout nav-link text-white border border-white fw-semibold rounded-pill px-3 py-2 d-flex align-items-center gap-2 mt-2">
+              <ion-icon name="exit"></ion-icon> Cerrar Sesión
+            </a>
+          </nav>
+
+          <div class="pie-barra-lateral pt-3 mt-4 border-top border-white small text-white">
+            <p class="mb-1">&copy; 2026 Todos los derechos reservados | <a href="https://www.sena.edu.co/" target="_blank" class="text-white fw-semibold text-decoration-none">SENA</a></p>
+            <a href="#" title="Pagina del SENA" target="_blank" class="text-white text-decoration-none">Términos &amp; Privacidad</a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Contenido principal -->
+      <main class="principal-doc col-lg-9 col-xl-10">
+        <div class="contenido-doc">
+          <section id="panel-funcionarios" class="panel-container">
+            <div class="banner-hero bg-success text-white rounded-4 p-4 p-md-5 mb-4 shadow-sm">
+              <div class="badge-tag badge bg-white text-success rounded-pill px-3 py-2 fw-semibold mb-3 d-inline-flex align-items-center gap-2">
+                <ion-icon name="shield-checkmark-outline"></ion-icon>
+                <span>Vigilancia y Seguridad • AGROFIT SENA</span>
+              </div>
+              <h1 class="banner-titulo display-6 fw-bold text-white mb-2">Panel Operativo de Funcionarios</h1>
+              <p class="banner-descripcion lead text-white mb-0">
+                Plataforma para control de accesos por torniquete, protocolos de desinfección e higiene, apoyo en sala y
+                supervisión de aforo del Centro de Formación.
+              </p>
+            </div>
+
+            <div class="carrusel-metricas-wrapper mb-4">
+              <div class="carrusel-contenedor row g-4" id="carruselMetricas">
+                <div class="col-12 col-md-4">
+                  <div class="tarjeta-metrica card bg-white text-success border border-success rounded-4 h-100 p-3 shadow-sm">
+                    <div class="card-body d-flex justify-content-between align-items-center p-1">
+                      <div>
+                        <span class="metrica-label small fw-bold text-success d-block mb-1">AFORO EN SALA</span>
+                        <div class="metrica-valor fs-1 fw-bold text-success">24 <span class="fs-4 fw-semibold">/ 45</span></div>
+                        <span class="metrica-subtexto small text-success d-block">53% de capacidad</span>
+                      </div>
+                      <div class="metrica-icono bg-success text-white rounded-circle d-flex align-items-center justify-content-center fs-4 flex-shrink-0"
+                        >
+                        <ion-icon name="time-outline"></ion-icon>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                  <div class="tarjeta-metrica card bg-white text-success border border-success rounded-4 h-100 p-3 shadow-sm">
+                    <div class="card-body d-flex justify-content-between align-items-center p-1">
+                      <div>
+                        <span class="metrica-label small fw-bold text-success d-block mb-1">INGRESOS VALIDADOS HOY</span>
+                        <div class="metrica-valor fs-1 fw-bold text-success">74</div>
+                        <span class="metrica-subtexto small text-success d-block">Jornada Mañana &amp; Tarde</span>
+                      </div>
+                      <div class="metrica-icono bg-success text-white rounded-circle d-flex align-items-center justify-content-center fs-4 flex-shrink-0"
+                        >
+                        <ion-icon name="person-outline"></ion-icon>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                  <div class="tarjeta-metrica card bg-white text-success border border-success rounded-4 h-100 p-3 shadow-sm">
+                    <div class="card-body d-flex justify-content-between align-items-center p-1">
+                      <div>
+                        <span class="metrica-label small fw-bold text-success d-block mb-1">MÁQUINAS DESINFECTADAS</span>
+                        <div class="metrica-valor fs-1 fw-bold text-success" id="contadorDesinfectadas">4 <span class="fs-4 fw-semibold">/ 6</span></div>
+                        <span class="metrica-subtexto small text-success d-block">Protocolo de higiene al 100%</span>
+                      </div>
+                      <div class="metrica-icono bg-success text-white rounded-circle d-flex align-items-center justify-content-center fs-4 flex-shrink-0"
+                        >
+                        <ion-icon name="brush-outline"></ion-icon>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel-grid-inferior row g-4">
+              <div class="col-12 col-lg-6">
+                <div class="card-modulo card bg-white text-success border border-success rounded-4 h-100 p-4 shadow-sm">
+                  <div class="card-encabezado d-flex align-items-center gap-2 mb-2">
+                    <ion-icon name="scan-outline" class="card-icono-header fs-4 text-success"></ion-icon>
+                    <h2 class="h5 fw-bold text-success mb-0">Control Rápido de Ingreso</h2>
+                  </div>
+                  <p class="card-instruccion small text-success mb-3">Verifica el carnet del aprendiz o funcionario digitando su número de documento.</p>
+
+                  <form class="form-busqueda d-flex flex-wrap gap-2" id="formIngreso" onsubmit="return false;">
+                    <input type="text" id="documentoInput"
+                      class="form-control bg-white text-success border border-success rounded-pill px-4 py-2 flex-grow-1"
+                      placeholder="Ej. 1098765432" required />
+                    <button type="submit" class="btn-validar btn btn-success text-white rounded-pill px-4 py-2 fw-semibold d-inline-flex align-items-center gap-2">
+                      <ion-icon name="search-outline"></ion-icon> Validar
+                    </button>
+                  </form>
+                  <div id="mensajeIngreso" class="mensaje-resultado mt-3 small fw-semibold text-success"></div>
+                </div>
+              </div>
+
+              <div class="col-12 col-lg-6">
+                <div class="card-modulo card bg-white text-success border border-success rounded-4 h-100 p-4 shadow-sm">
+                  <div class="card-encabezado d-flex align-items-center gap-2 mb-2">
+                    <ion-icon name="key-outline" class="card-icono-header fs-4 text-success"></ion-icon>
+                    <h2 class="h5 fw-bold text-success mb-0">Checklist Rápido de Higiene</h2>
+                  </div>
+                  <p class="card-instruccion small text-success mb-3">Marca las estaciones desinfectadas antes del siguiente bloque de entrenamiento.</p>
+
+                  <div class="lista-higiene-scroll d-flex flex-column gap-2" >
+                    <div class="item-higiene completado bg-success text-white rounded-3 p-3 d-flex justify-content-between align-items-center gap-2" data-id="1">
+                      <div class="higiene-detalles">
+                        <strong class="d-block small fw-bold text-white">Prensa de Piernas 45° Profesional</strong>
+                        <span class="small text-white">Zona de Fuerza Inferior - Módulo A</span>
+                      </div>
+                      <button type="button" class="btn-estado-higiene btn btn-light text-success rounded-pill px-3 py-1 small fw-semibold d-inline-flex align-items-center gap-1"
+                        onclick="toggleHigiene(this)">
+                        <ion-icon name="checkmark-outline"></ion-icon> Lista
+                      </button>
+                    </div>
+
+                    <div class="item-higiene completado bg-success text-white rounded-3 p-3 d-flex justify-content-between align-items-center gap-2" data-id="2">
+                      <div class="higiene-detalles">
+                        <strong class="d-block small fw-bold text-white">Máquina Multifuerza Smith</strong>
+                        <span class="small text-white">Zona Central de Fuerza</span>
+                      </div>
+                      <button type="button" class="btn-estado-higiene btn btn-light text-success rounded-pill px-3 py-1 small fw-semibold d-inline-flex align-items-center gap-1"
+                        onclick="toggleHigiene(this)">
+                        <ion-icon name="checkmark-outline"></ion-icon> Lista
+                      </button>
+                    </div>
+
+                    <div class="item-higiene pendiente bg-white text-success border border-success rounded-3 p-3 d-flex justify-content-between align-items-center gap-2" data-id="3">
+                      <div class="higiene-detalles">
+                        <strong class="d-block small fw-bold text-success">Polea Doble Crossover Ajustable</strong>
+                        <span class="small text-success">Zona Funcional y Cables</span>
+                      </div>
+                      <button type="button" class="btn-estado-higiene btn btn-success text-white rounded-pill px-3 py-1 small fw-semibold"
+                        onclick="toggleHigiene(this)">Pendiente</button>
+                    </div>
+
+                    <div class="item-higiene pendiente bg-white text-success border border-success rounded-3 p-3 d-flex justify-content-between align-items-center gap-2" data-id="4">
+                      <div class="higiene-detalles">
+                        <strong class="d-block small fw-bold text-success">Banco Plano Olímpico de Pecho</strong>
+                        <span class="small text-success">Zona de Pesas Libres</span>
+                      </div>
+                      <button type="button" class="btn-estado-higiene btn btn-success text-white rounded-pill px-3 py-1 small fw-semibold"
+                        onclick="toggleHigiene(this)">Pendiente</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- MODAL DE PERFIL & DATOS DE CONTACTO -->
+  <!-- ============================================================ -->
+  <div class="modal fade" id="modalPerfil" tabindex="-1" aria-labelledby="modalPerfilLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content bg-white text-success rounded-4 shadow border border-success">
+        <div class="modal-header bg-success text-white rounded-top-4">
+          <div class="d-flex align-items-center gap-3">
+            <div class="bg-white text-success rounded-circle d-flex align-items-center justify-content-center fs-4"
+             >
+              <ion-icon name="person-outline"></ion-icon>
+            </div>
+            <div>
+              <h2 class="modal-title h5 fw-bold text-white mb-0" id="modalPerfilLabel">Mi Perfil &amp; Datos de Contacto</h2>
+              <p class="small text-white mb-0">Actualiza tus canales de notificación y bioseguridad</p>
+            </div>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar modal"></button>
+        </div>
+
+        <div class="modal-body p-4">
+          <div class="border border-success rounded-4 p-3 mb-4 d-flex flex-wrap align-items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+              alt="Foto de perfil" class="rounded-circle object-fit-cover border border-success" width="72" height="72">
+            <div class="flex-grow-1">
+              <span class="d-block fw-bold text-success mb-2">Fotografía del Perfil</span>
+              <div class="d-flex flex-wrap gap-2">
+                <button type="button" class="btn btn-outline-success rounded-pill px-3 py-1 fw-semibold">
+                  <ion-icon name="camera-outline"></ion-icon> Cambiar Foto
+                </button>
+                <button type="button" class="btn btn-success text-white rounded-pill px-3 py-1 fw-semibold">
+                  <ion-icon name="trash-outline"></ion-icon> Quitar
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-3 border border-success rounded-4 p-3 mb-4">
+            <div class="col-12 col-sm-6">
+              <span class="small fw-bold text-success d-block">NOMBRES Y APELLIDOS</span>
+              <strong class="text-success">Jairo Andrés Pérez Gómez</strong>
+            </div>
+            <div class="col-12 col-sm-6">
+              <span class="small fw-bold text-success d-block">DOCUMENTO</span>
+              <strong class="text-success">CC 1002345678</strong>
+            </div>
+            <div class="col-12 col-sm-6">
+              <span class="small fw-bold text-success d-block">FICHA DE FORMACIÓN</span>
+              <strong class="text-success">2694520</strong>
+            </div>
+            <div class="col-12 col-sm-6">
+              <span class="small fw-bold text-success d-block">ROL EN EL SISTEMA</span>
+              <strong class="text-success">Funcionario</strong>
+            </div>
+          </div>
+
+          <form id="formPerfil" class="mb-4">
+            <div class="mb-3">
+              <label for="correo" class="form-label fw-semibold text-success">Correo Electrónico (Institucional o Personal) *</label>
+              <input type="email" id="correo" class="form-control border-success text-success" value="jairo.perez@misena.edu.co" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="telefono" class="form-label fw-semibold text-success">Teléfono Celular *</label>
+              <input type="tel" id="telefono" class="form-control border-success text-success" value="3124567890" required>
+            </div>
+
+            <div class="mb-0">
+              <label for="contactoEmergencia" class="form-label fw-semibold text-success">Contacto de Emergencia / Acudiente</label>
+              <input type="tel" id="contactoEmergencia" class="form-control border-success text-success" value="3159876543">
+            </div>
+          </form>
+
+          <div class="border border-success rounded-4 p-3">
+            <div class="d-flex align-items-center gap-2 fw-bold text-success mb-1">
+              <ion-icon name="warning-outline"></ion-icon>
+              <strong>Zona de Seguridad de Cuenta</strong>
+            </div>
+            <p class="small text-success mb-2">Puedes radicar una solicitud formal para cancelar tu cuenta de AGROFIT y transferir tu historial lúdico.</p>
+            <a href="#" class="small fw-bold text-success text-decoration-none">Solicitar eliminación permanente de mi cuenta</a>
+          </div>
+        </div>
+
+        <div class="modal-footer border-top border-success">
+          <button type="button" class="btn btn-outline-success rounded-pill px-4 fw-semibold" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" form="formPerfil" class="btn btn-success text-white rounded-pill px-4 fw-semibold d-inline-flex align-items-center gap-1">
+            <ion-icon name="save-outline"></ion-icon> Guardar Cambios
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer bg-success text-white py-5 mt-auto">
+    <div class="container">
+      <div class="row g-4 justify-content-between align-items-start">
+        <div class="col-12 col-md-6">
+          <h4 class="h6 fw-bold text-uppercase text-white mb-3">También nos encontrarás en:</h4>
+          <div class="icons d-flex flex-wrap gap-2 fs-4 mb-3 text-white">
+            <ion-icon name="logo-facebook"></ion-icon>
+            <ion-icon name="logo-linkedin"></ion-icon>
+            <ion-icon name="logo-youtube"></ion-icon>
+            <ion-icon name="logo-instagram"></ion-icon>
+            <ion-icon name="logo-x"></ion-icon>
+            <ion-icon name="logo-tiktok"></ion-icon>
+          </div>
+          <p class="mb-1 text-white">@SENAcomunica</p>
+          <a href="https://www.sena.edu.co" title="Pagina del SENA" target="_blank"
+            class="text-white fw-semibold text-decoration-none">www.sena.edu.co</a>
+        </div>
+
+        <div class="col-12 col-md-6 text-md-end">
+          <p class="mb-2 text-white">&copy; 2026 Todos los derechos reservados | <a href="https://www.sena.edu.co/"
+              target="_blank" class="text-white fw-semibold text-decoration-none">SENA</a>
+            - Servicio Nacional de Aprendizaje.</p>
+          <a href="#" title="Pagina del SENA" target="_blank"
+            class="text-white fw-semibold text-decoration-none small">
+            Términos &amp; Privacidad</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
   <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 
   <!-- Librería de alertas -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-  <!-- JS SIDEBAR -->
-  <script src="../../js/sidebar.js"></script>
-
-  <!-- JS propio -->
-  <script src="../../js/dashboards/staff-dashboard.js"></script>
 
   <!-- ionicons -->
   <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
