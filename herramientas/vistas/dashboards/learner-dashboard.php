@@ -3,137 +3,157 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agrofit | Modulo - Aprendiz</title>
-    <!-- Favicon actualizado a assets/img/ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="../../../assets/img/sena-logo.png">
-
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-<body class="bg-white text-success min-vh-100 d-flex flex-column">
-    <header class="navbar navbar-expand-lg navbar-dark bg-success sticky-top shadow-sm py-3">
-        <div class="container-fluid px-4">
-            <div class="d-flex align-items-center gap-3">
-                <a class="navbar-brand d-flex align-items-center m-0" href="../../../index.php">
-                    <img src="../../../assets/img/agrofit-logo.png" alt="Logo de la plataforma" class="logo-agrofit" height="50">
-                </a>
+<body class="bg-white text-success">
 
-                <div class="marca-barra-lateral d-flex align-items-center gap-2 text-white" id="btnPerfil" role="button" tabindex="0">
-                    <span class="icono-perfil d-inline-flex align-items-center justify-content-center bg-white text-success rounded-circle fs-5"
-                        >
-                        <ion-icon name="person"></ion-icon>
-                    </span>
-                    <span class="version-marca fw-semibold text-white">
-                        <?php session_start();	echo $_SESSION['loginUsuSesion']; ?>
-                    </span>
-                </div>
-            </div>
-
-            <button class="menu-movil navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobile-menu"
-                aria-controls="mobile-menu" aria-label="Menú">
+    <!-- Barra superior: solo en celular/tablet, con el botón que abre el menú -->
+    <nav class="navbar navbar-dark bg-success d-lg-none shadow-sm">
+        <div class="container-fluid">
+            <button class="navbar-toggler border-white" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#menuLateral" aria-controls="menuLateral" aria-label="Abrir menú">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <span class="navbar-brand mb-0 h1 text-white fw-bold">AGROFIT</span>
+        </div>
+    </nav>
 
-            <div class="collapse navbar-collapse justify-content-end">
-                <div class="header-buttons d-flex gap-2">
-                    <button type="button" class="btn btn-outline-light rounded-pill px-4 fw-semibold"
-                        data-bs-toggle="modal" data-bs-target="#modalPerfil">Mi Perfil</button>
-                    <a href="../../controlador/loginControl.php?opcion=salir"
-                        class="btn btn-light text-success rounded-pill px-4 fw-semibold btn-logout" id="btnLogout">Cerrar Sesión</a>
-                </div>
+    <div class="d-flex vh-100 overflow-hidden">
+
+        <!-- ================= MENÚ LATERAL ================= -->
+        <aside class="offcanvas-lg offcanvas-start bg-success text-white flex-shrink-0"
+        tabindex="-1"
+        id="menuLateral"
+        aria-labelledby="tituloMenu">
+
+            <!-- Encabezado visible solo cuando el menú se abre en celular -->
+            <div class="offcanvas-header border-bottom border-white">
+                <h5 class="offcanvas-title text-white fw-bold" id="tituloMenu">AGROFIT</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                    data-bs-target="#menuLateral" aria-label="Cerrar"></button>
             </div>
-        </div>
-    </header>
 
-    <div class="offcanvas offcanvas-end bg-success text-white" tabindex="-1" id="mobile-menu"
-        aria-labelledby="mobileMenuLabel">
-        <div class="offcanvas-header border-bottom border-white">
-            <h5 class="offcanvas-title fw-bold text-white" id="mobileMenuLabel">AGROFIT • APRENDIZ</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
-        </div>
-        <div class="offcanvas-body d-flex flex-column justify-content-between py-4">
-            <nav class="nav-barra-lateral d-flex flex-column gap-2">
-                <a href="learner-dashboard.php" class="nav-link text-success bg-white fw-bold rounded-pill px-3 py-2 d-flex align-items-center gap-2">
-                    <ion-icon name="home"></ion-icon> Inicio
-                </a>
-                <a href="#" class="nav-link text-white fw-semibold rounded-pill px-3 py-2 d-flex align-items-center gap-2">
-                    <ion-icon name="person"></ion-icon> Medidas
-                </a>
-                <a href="#" class="nav-link text-white fw-semibold rounded-pill px-3 py-2 d-flex align-items-center gap-2">
-                    <ion-icon name="barbell"></ion-icon> Semana de Adaptación
-                </a>
-                <a href="#" class="nav-link text-white fw-semibold rounded-pill px-3 py-2 d-flex align-items-center gap-2">
-                    <ion-icon name="clipboard"></ion-icon> Rutinas
-                </a>
-                <a href="#" class="nav-link text-white fw-semibold rounded-pill px-3 py-2 d-flex align-items-center gap-2">
-                    <ion-icon name="checkmark-circle"></ion-icon> Asistencia
-                </a>
-                <a href="#" class="nav-link text-white fw-semibold rounded-pill px-3 py-2 d-flex align-items-center gap-2">
-                    <ion-icon name="sparkles"></ion-icon> Progreso
-                </a>
-                <a href="#" class="nav-link text-white fw-semibold rounded-pill px-3 py-2 d-flex align-items-center gap-2">
-                    <ion-icon name="mail-unread"></ion-icon> Mensajes
-                </a>
-                <a href="../../controlador/loginControl.php?opcion=salir"
-                    class="nav-link text-white border border-white fw-semibold rounded-pill px-3 py-2 d-flex align-items-center gap-2 mt-2 btn-logout">
-                    <ion-icon name="exit"></ion-icon> Cerrar Sesión
-                </a>
-            </nav>
+            <div class="offcanvas-body d-flex flex-column p-3 h-100">
 
-            <div class="pie-barra-lateral pt-3 border-top border-white small text-white">
-                <p class="mb-1">&copy; 2026 Todos los derechos reservados | <a href="https://www.sena.edu.co/" target="_blank" class="text-white fw-semibold text-decoration-none">SENA</a></p>
-                <a href="#" title="Pagina del SENA" target="_blank" class="text-white text-decoration-none">Términos &amp; Privacidad</a>
-            </div>
-        </div>
-    </div>
+                <!-- Logo / nombre: solo en pantallas grandes -->
+                <a href="learner-dashboard.php"
+                    class="d-none d-lg-flex align-items-center gap-2 mb-3 pb-3 text-white text-decoration-none border-bottom border-white">
+                    <i class="bi bi-box-seam fs-4 text-white"></i>
+                    <span class="fs-5 fw-semibold text-white">AGROFIT</span>
+                </a>
 
-    <div class="container-fluid flex-grow-1 px-4 py-4">
-        <div class="row g-4">
-            <!-- Barra lateral de navegación en escritorio -->
-            <aside class="col-lg-3 col-xl-2 d-none d-lg-block">
-                <div class="bg-success text-white rounded-4 p-3 shadow-sm h-100 d-flex flex-column justify-content-between">
-                    <nav class="nav-barra-lateral d-flex flex-column gap-2">
-                        <a href="learner-dashboard.php"
-                            class="enlace-nav activo nav-link bg-white text-success fw-bold rounded-pill px-3 py-2 d-flex align-items-center gap-2">
-                            <ion-icon name="home"></ion-icon> Inicio
-                        </a>
-                        <a href="#" class="enlace-nav nav-link text-white fw-semibold rounded-pill px-3 py-2 d-flex align-items-center gap-2">
-                            <ion-icon name="person"></ion-icon> Medidas
-                        </a>
-                        <a href="#" class="enlace-nav nav-link text-white fw-semibold rounded-pill px-3 py-2 d-flex align-items-center gap-2">
-                            <ion-icon name="barbell"></ion-icon> Semana de Adaptación
-                        </a>
-                        <a href="#" class="enlace-nav nav-link text-white fw-semibold rounded-pill px-3 py-2 d-flex align-items-center gap-2">
-                            <ion-icon name="clipboard"></ion-icon> Rutinas
-                        </a>
-                        <a href="#" class="enlace-nav nav-link text-white fw-semibold rounded-pill px-3 py-2 d-flex align-items-center gap-2">
-                            <ion-icon name="checkmark-circle"></ion-icon> Asistencia
-                        </a>
-                        <a href="#" class="enlace-nav nav-link text-white fw-semibold rounded-pill px-3 py-2 d-flex align-items-center gap-2">
-                            <ion-icon name="sparkles"></ion-icon> Progreso
-                        </a>
-                        <a href="#" class="enlace-nav nav-link text-white fw-semibold rounded-pill px-3 py-2 d-flex align-items-center gap-2">
-                            <ion-icon name="mail-unread"></ion-icon> Mensajes
-                        </a>
-                        <a href="../../controlador/loginControl.php?opcion=salir"
-                            class="enlace-nav btn-logout nav-link text-white border border-white fw-semibold rounded-pill px-3 py-2 d-flex align-items-center gap-2 mt-2">
-                            <ion-icon name="exit"></ion-icon> Cerrar Sesión
-                        </a>
-                    </nav>
+                <ul class="nav nav-pills flex-column gap-1 mb-auto" id="listaMenu">
 
-                    <div class="pie-barra-lateral pt-3 mt-4 border-top border-white small text-white">
-                        <p class="mb-1">&copy; 2026 Todos los derechos reservados | <a href="https://www.sena.edu.co/" target="_blank" class="text-white fw-semibold text-decoration-none">SENA</a></p>
-                        <a href="#" title="Pagina del SENA" target="_blank" class="text-white text-decoration-none">Términos &amp; Privacidad</a>
+                    <!-- Opción simple (sin submenú) -->
+                    <li class="nav-item">
+                        <a class="nav-link active bg-white text-success fw-semibold d-flex align-items-center gap-2"
+                            href="learner-dashboard.php">
+                            <i class="bi bi-house-door"></i> Inicio
+                        </a>
+                    </li>
+
+                    <!-- Opción con submenú: Rutinas -->
+                    <li class="nav-item">
+                        <a class="nav-link text-white d-flex align-items-center gap-2" href="#subRutinas" role="button"
+                            data-bs-toggle="collapse" aria-expanded="false" aria-controls="subRutinas">
+                            <i class="bi bi-people"></i> Rutinas
+                            <i class="bi bi-chevron-down ms-auto"></i>
+                        </a>
+                        <div class="collapse" id="subRutinas" data-bs-parent="#listaMenu">
+                            <ul class="nav flex-column gap-1 mt-1 ps-4">
+                                <li><a class="nav-link text-white small" href="../rutinas/automated-routines.php">Generador de Rutinas</a></li>
+                                <li><a class="nav-link text-white small" href="../rutinas/learner-routines.php">Mis Rutinas - Aprendiz</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <!-- Opción con submenú: Seguimiento -->
+                    <li class="nav-item">
+                        <a class="nav-link text-white d-flex align-items-center gap-2" href="#subSeguimiento" role="button"
+                            data-bs-toggle="collapse" aria-expanded="false" aria-controls="subSeguimiento">
+                            <i class="bi bi-people"></i> Seguimiento
+                            <i class="bi bi-chevron-down ms-auto"></i>
+                        </a>
+                        <div class="collapse" id="subSeguimiento" data-bs-parent="#listaMenu">
+                            <ul class="nav flex-column gap-1 mt-1 ps-4">
+                                <li><a class="nav-link text-white small" href="../seguimiento/adaptation-week.php">Semana de Adaptación</a></li>
+                                <li><a class="nav-link text-white small" href="../seguimiento/routine-progress.php">Progreso</a></li>
+                                <li><a class="nav-link text-white small" href="../seguimiento/attendance/learner-attendance.php">Asistencias - Aprendiz</a></li>
+                                <li><a class="nav-link text-white small" href="../seguimiento/attendance/attendance-report.php">Reporte de Asistencia</a></li>
+                                <li><a class="nav-link text-white small" href="../seguimiento/measures/learner-measurements.php">Medidas - Aprendiz</a></li>
+
+                            </ul>
+                        </div>
+                    </li>
+
+                    <!-- Opción con submenú: Contacto -->
+                    <li class="nav-item">
+                        <a class="nav-link text-white d-flex align-items-center gap-2" href="#subContacto" role="button"
+                            data-bs-toggle="collapse" aria-expanded="false" aria-controls="subContacto">
+                            <i class="bi bi-people"></i> Contacto
+                            <i class="bi bi-chevron-down ms-auto"></i>
+                        </a>
+                        <div class="collapse" id="subContacto" data-bs-parent="#listaMenu">
+                            <ul class="nav flex-column gap-1 mt-1 ps-4">
+                                <li><a class="nav-link text-white small" href="../contacto/messages/learner-messages.php">Mensajes - Aprendiz</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <!-- Opción con submenú: Reportes -->
+                    <li class="nav-item">
+                        <a class="nav-link text-white d-flex align-items-center gap-2" href="#subReportes" role="button"
+                            data-bs-toggle="collapse" aria-expanded="false" aria-controls="subReportes">
+                            <i class="bi bi-bar-chart"></i> Reportes
+                            <i class="bi bi-chevron-down ms-auto"></i>
+                        </a>
+                        <div class="collapse" id="subReportes" data-bs-parent="#listaMenu">
+                            <ul class="nav flex-column gap-1 mt-1 ps-4">
+                                <li><a class="nav-link text-white small" href="#">Diario</a></li>
+                                <li><a class="nav-link text-white small" href="#">Mensual</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <!-- Opción con submenú: Configuración -->
+                    <li class="nav-item">
+                        <a class="nav-link text-white d-flex align-items-center gap-2" href="#subConfig" role="button"
+                            data-bs-toggle="collapse" aria-expanded="false" aria-controls="subConfig">
+                            <i class="bi bi-gear"></i> Configuración
+                            <i class="bi bi-chevron-down ms-auto"></i>
+                        </a>
+                        <div class="collapse" id="subConfig" data-bs-parent="#listaMenu">
+                            <ul class="nav flex-column gap-1 mt-1 ps-4">
+                                <li><a class="nav-link text-white small" href="#">Áreas</a></li>
+                                <li><a class="nav-link text-white small" href="#">Cargos</a></li>
+                                <li><a class="nav-link text-white small" href="#">Centros</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- Pie del menú: usuario y salir -->
+                <div class="border-top border-white pt-3 mt-3">
+                    <div class="d-flex align-items-center gap-2 mb-2 px-2 small text-white" role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#modalPerfil">
+                        <i class="bi bi-person-circle fs-5 text-white"></i>
+                        <!-- En PHP: <?= htmlspecialchars($_SESSION['loginUsuSesion']) ?> -->
+                        <span>Nombre del usuario</span>
                     </div>
+                    <!-- Ajusta la ruta a tu archivo de login -->
+                    <a class="nav-link text-white d-flex align-items-center gap-2" href="../../controlador/loginControl.php?opcion=salir" id="btnLogout">
+                        <i class="bi bi-box-arrow-right"></i> Salir
+                    </a>
                 </div>
-            </aside>
+            </div>
+        </aside>
 
-            <!-- Contenido principal -->
-            <main class="principal-doc col-lg-9 col-xl-10">
-                <div class="contenido-doc">
+        <!-- ================= CONTENIDO ================= -->
+        <main class="flex-grow-1 p-2 p-md-4 bg-white text-success overflow-auto h-100">
                     <section id="dashboard-inicio" class="dashboard-seccion">
                         <div class="bienvenida-header d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4 pb-3 border-bottom border-success">
                             <div class="bienvenida-texto">
@@ -277,7 +297,7 @@
                                             <small class="text-success">Faltan 5 sesiones para "Constancia Bronce"</small>
                                         </div>
                                         <div class="progress bg-white border border-success rounded-pill" >
-                                            <div class="progress-bar bg-success" role="progressbar"  aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <div class="progress-bar bg-success w-25" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -334,9 +354,7 @@
                             </aside>
                         </div>
                     </section>
-                </div>
-            </main>
-        </div>
+        </main>
     </div>
 
     <!-- ============================================================ -->
@@ -432,45 +450,12 @@
         </div>
     </div>
 
-    <footer class="footer bg-success text-white py-5 mt-auto">
-        <div class="container">
-            <div class="row g-4 justify-content-between align-items-start">
-                <div class="col-12 col-md-6">
-                    <h4 class="h6 fw-bold text-uppercase text-white mb-3">También nos encontrarás en:</h4>
-                    <div class="icons d-flex flex-wrap gap-2 fs-4 mb-3 text-white">
-                        <ion-icon name="logo-facebook"></ion-icon>
-                        <ion-icon name="logo-linkedin"></ion-icon>
-                        <ion-icon name="logo-youtube"></ion-icon>
-                        <ion-icon name="logo-instagram"></ion-icon>
-                        <ion-icon name="logo-x"></ion-icon>
-                        <ion-icon name="logo-tiktok"></ion-icon>
-                    </div>
-                    <p class="mb-1 text-white">@SENAcomunica</p>
-                    <a href="https://www.sena.edu.co" title="Pagina del SENA" target="_blank"
-                        class="text-white fw-semibold text-decoration-none">www.sena.edu.co</a>
-                </div>
-
-                <div class="col-12 col-md-6 text-md-end">
-                    <p class="mb-2 text-white">&copy; 2026 Todos los derechos reservados | <a href="https://www.sena.edu.co/"
-                            target="_blank" class="text-white fw-semibold text-decoration-none">SENA</a>
-                        - Servicio Nacional de Aprendizaje.</p>
-                    <a href="#" title="Pagina del SENA" target="_blank"
-                        class="text-white fw-semibold text-decoration-none small">
-                        Términos &amp; Privacidad</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Librería de alertas SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
+    <script type="text/javascript" src="../../../herramientas/js/logout.js" defer></script>
+    <script type="text/javascript" src="../../../herramientas/js/reveal.js" defer></script>
     <!-- Ionicons -->
     <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>

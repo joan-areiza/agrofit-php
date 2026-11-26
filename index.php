@@ -54,17 +54,21 @@
         </div>
     </div>
 
-    <section class="hero bg-success text-white py-5" id="hero">
-        <div class="container py-4">
+    <section class="hero position-relative overflow-hidden text-white py-5" id="hero">
+        <img src="assets/img/banner1.jpg" alt="Banner Agrofit"
+            class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover">
+        <div class="position-absolute top-0 start-0 w-100 h-100 bg-success bg-opacity-10"></div>
+
+        <div class="container position-relative py-4">
             <div class="text-box text-center mx-auto mb-5" data-reveal="fade-up">
                 <h1 class="display-4 fw-bold text-white">Entrenamiento, Rutinas &amp;
-                    <span class="d-block text-white">Seguimiento de Horas Lúdicas</span>
+                    <span class="d-block text-success">Seguimiento de Horas Lúdicas</span>
                 </h1>
                 <p class="lead mx-auto my-4 text-white">Plataforma institucional para el control integral del gimnasio AGROFIT. Diseñada para aprendices,
                     instructores deportivos y funcionarios del SENA con evaluación biométrica, control de maquinaria y
                     registro de asistencias.</p>
                 <div class="d-flex flex-wrap justify-content-center gap-3">
-                    <button type="button" class="hero-btn hero-login-btn btn btn-light text-success fw-semibold btn-lg rounded-pill px-5 py-3"
+                    <button type="button" class="hero-btn hero-login-btn btn btn-light text-success  fw-semibold btn-lg rounded-pill px-5 py-3"
                         data-bs-toggle="modal" data-bs-target="#loginModal">Acceder a AgroFit</button>
                     <a href="herramientas/vistas/about.php"
                         class="hero-btn hero-about-btn btn btn-outline-light fw-semibold btn-lg rounded-pill px-5 py-3">Más información</a>
@@ -73,34 +77,34 @@
 
             <div class="row g-4 justify-content-center mb-4">
                 <div class="col-12 col-sm-6 col-lg-3" data-reveal="fade-left" data-reveal-delay="1">
-                    <div class="hero-col card bg-white text-success border-0 rounded-4 h-100 text-center p-3 shadow-sm">
+                    <div class="hero-col card bg-success text-light border-0 rounded-4 h-100 text-center p-3 shadow-sm">
                         <div class="card-body">
-                            <h3 class="h2 fw-bold text-success">60 Hrs</h3>
-                            <p class="paragraph-decoration text-success mb-0 fw-medium">Horas Lúdicas Certificables</p>
+                            <h3 class="h2 fw-bold text-light">60 Hrs</h3>
+                            <p class="paragraph-decoration text-light mb-0 fw-medium">Horas Lúdicas Certificables</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3" data-reveal="fade-up" data-reveal-delay="2">
-                    <div class="hero-col card bg-white text-success border-0 rounded-4 h-100 text-center p-3 shadow-sm">
+                    <div class="hero-col card bg-success text-light border-0 rounded-4 h-100 text-center p-3 shadow-sm">
                         <div class="card-body">
-                            <h3 class="h2 fw-bold text-success">100%</h3>
-                            <p class="paragraph-decoration text-success mb-0 fw-medium">Maquinaria Monitoreada</p>
+                            <h3 class="h2 fw-bold text-light">100%</h3>
+                            <p class="paragraph-decoration text-light mb-0 fw-medium">Maquinaria Monitoreada</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3" data-reveal="fade-up" data-reveal-delay="3">
-                    <div class="hero-col card bg-white text-success border-0 rounded-4 h-100 text-center p-3 shadow-sm">
+                    <div class="hero-col card bg-success text-light border-0 rounded-4 h-100 text-center p-3 shadow-sm">
                         <div class="card-body">
-                            <h3 class="h2 fw-bold text-success">14+</h3>
-                            <p class="paragraph-decoration text-success mb-0 fw-medium">Músculos con Mapeo Realista</p>
+                            <h3 class="h2 fw-bold text-light">14+</h3>
+                            <p class="paragraph-decoration text-light mb-0 fw-medium">Músculos con Mapeo Realista</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3" data-reveal="fade-right" data-reveal-delay="4">
-                    <div class="hero-col card bg-white text-success border-0 rounded-4 h-100 text-center p-3 shadow-sm">
+                    <div class="hero-col card bg-success text-light border-0 rounded-4 h-100 text-center p-3 shadow-sm">
                         <div class="card-body">
-                            <h3 class="h2 fw-bold text-success">2 Jornadas</h3>
-                            <p class="paragraph-decoration text-success mb-0 fw-medium">Mañana y Tarde</p>
+                            <h3 class="h2 fw-bold text-light">2 Jornadas</h3>
+                            <p class="paragraph-decoration text-light mb-0 fw-medium">Mañana y Tarde</p>
                         </div>
                     </div>
                 </div>
@@ -155,25 +159,25 @@
                 <div class="stat-box col-12 col-md-6" data-reveal="fade-left" data-reveal-delay="1">
                     <h4 class="h6 fw-semibold text-success mb-2">Zona Cardio</h4>
                     <div class="progress bg-white border border-success rounded-pill" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                        <div class="progress-fill progress-bar bg-success" "></div>
+                        <div class="progress-fill progress-bar bg-success w-75 rounded-pill"></div>
                     </div>
                 </div>
                 <div class="stat-box col-12 col-md-6" data-reveal="fade-right" data-reveal-delay="2">
                     <h4 class="h6 fw-semibold text-success mb-2">Zona Máquinas Guiadas</h4>
                     <div class="progress bg-white border border-success rounded-pill" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                        <div class="progress-fill progress-bar bg-success" "></div>
+                        <div class="progress-fill progress-bar bg-success w-75 rounded-pill"></div>
                     </div>
                 </div>
                 <div class="stat-box col-12 col-md-6" data-reveal="fade-left" data-reveal-delay="3">
                     <h4 class="h6 fw-semibold text-success mb-2">Zona Peso Libre</h4>
                     <div class="progress bg-white border border-success rounded-pill" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
-                        <div class="progress-fill progress-bar bg-success" "></div>
+                        <div class="progress-fill progress-bar bg-success w-50 rounded-pill"></div>
                     </div>
                 </div>
                 <div class="stat-box col-12 col-md-6" data-reveal="fade-right" data-reveal-delay="4">
                     <h4 class="h6 fw-semibold text-success mb-2">Zona Funcional</h4>
                     <div class="progress bg-white border border-success rounded-pill" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-                        <div class="progress-fill progress-bar bg-success" "></div>
+                        <div class="progress-fill progress-bar bg-success w-50 rounded-pill"></div>
                     </div>
                 </div>
             </div>
@@ -210,6 +214,15 @@
                         </div>
                     </div>
                 </div>
+                <div class="equipment-col col-12 col-sm-6 col-lg-4" data-reveal="fade-right" data-reveal-delay="6">
+                    <div class="card bg-white text-success border-0 rounded-4 overflow-hidden h-100 shadow-sm">
+                        <img src="assets/img/instalaciones6.jpg" alt="Área Libre" class="card-img-top object-fit-cover" >
+                        <div class="card-body d-flex align-items-center justify-content-center py-3">
+                            <h3 class="card-title h5 fw-semibold text-success mb-0 text-center">Área Libre</h3>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="equipment-col col-12 col-sm-6 col-lg-4" data-reveal="scale-in" data-reveal-delay="4">
                     <div class="card bg-white text-success border-0 rounded-4 overflow-hidden h-100 shadow-sm">
                         <img src="assets/img/instalaciones4.jpg" alt="Sala de Máquinas" class="card-img-top object-fit-cover" >
@@ -226,14 +239,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="equipment-col col-12 col-sm-6 col-lg-4" data-reveal="fade-right" data-reveal-delay="6">
-                    <div class="card bg-white text-success border-0 rounded-4 overflow-hidden h-100 shadow-sm">
-                        <img src="assets/img/instalaciones6.jpg" alt="Área Libre" class="card-img-top object-fit-cover" >
-                        <div class="card-body d-flex align-items-center justify-content-center py-3">
-                            <h3 class="card-title h5 fw-semibold text-success mb-0 text-center">Área Libre</h3>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
             <div class="equipment-dots d-flex justify-content-center gap-2 mt-4" id="equipmentDots" aria-label="Indicadores de instalaciones"></div>
         </div>
@@ -637,6 +643,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript" src="herramientas/js/login.js" defer></script>
+    <script type="text/javascript" src="herramientas/js/reveal.js" defer></script>
     <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
 

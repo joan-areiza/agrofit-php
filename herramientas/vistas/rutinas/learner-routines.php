@@ -152,7 +152,7 @@
                             </div>
 
                             <div class="d-flex flex-wrap align-items-center gap-2">
-                                <a href="../../../../src/features/routines/automated-routines/automated-routines.html"
+                                <a href="automated-routines.php"
                                     class="btn btn-outline-success rounded-pill px-3 py-2 fw-semibold d-inline-flex align-items-center gap-2">
                                     <ion-icon name="hardware-chip-outline"></ion-icon>
                                     <span>Automatizar Rutina</span>

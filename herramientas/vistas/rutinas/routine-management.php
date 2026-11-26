@@ -212,7 +212,7 @@
                                                 Guardar y Asignar Rutina
                                             </button>
 
-                                            <a href="../../../../src/features/routines/coach-routines/coach-routines.html"
+                                            <a href="coach-routines.php"
                                                 class="btn-regresar btn btn-outline-success rounded-pill py-2 fw-semibold d-inline-flex align-items-center justify-content-center gap-2 text-decoration-none">
                                                 <ion-icon name="arrow-back-outline"></ion-icon>
                                                 Regresar
