@@ -23,7 +23,7 @@ $(document).ready(function () {
                 $("#login-password").focus();
                 } else {
                     $.ajax({
-                        url: "/agrofit-php/herramientas/controlador/loginControl.php", 
+                        url: "herramientas/controlador/loginControl.php", 
                         type: "POST",
                         data: {
                             opcion: "iniciarLogueo",
@@ -45,7 +45,7 @@ $(document).ready(function () {
                                     text: "Acceso permitido."
                                 });
                                 // Redirección adaptada a tu estructura PHP en vistas/dashboards/
-                                window.location.href = "/agrofit-php/herramientas/vistas/dashboards/learner-dashboard.php"; 
+                                window.location.href = "herramientas/vistas/dashboards/learner-dashboard.php"; 
                             }
                         },
                         error: function (xhr) {

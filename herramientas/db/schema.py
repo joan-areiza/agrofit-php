@@ -554,7 +554,7 @@ def init_db():
 		CONSTRAINT `id_rutina_fk` FOREIGN KEY (`id_rutina_fk`) REFERENCES `rutinas` (`id_rutina_pk`) ON UPDATE CASCADE,
 		CONSTRAINT `id_usuario_fk` FOREIGN KEY (`id_usuario_fk`) REFERENCES `aprendices` (`id_aprendiz_pk`) ON UPDATE CASCADE,
 		CONSTRAINT `id_estado_asignacion_rutina_fk` FOREIGN KEY (`id_estado_asignacion_rutina_fk`) REFERENCES `estados_asignacion` (`id_estado_asignacion_pk`) ON UPDATE CASCADE
-	) ENGINE = InnoD CHARSET = utf8mb4 COLLATE = utf8mb4_spanish2_ci;
+	) ENGINE = InnoDB CHARSET = utf8mb4 COLLATE = utf8mb4_spanish2_ci;
 
 	CREATE TABLE IF NOT EXISTS `asistencias` (
 		`id_asistencia_pk` int(11) NOT NULL AUTO_INCREMENT,

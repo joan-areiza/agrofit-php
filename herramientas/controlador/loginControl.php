@@ -70,36 +70,27 @@ if (realpath(__FILE__) === realpath($_SERVER["SCRIPT_FILENAME"])) {
                         break;
                     }
                     $estado = '0';
-                    $query = "SELECT usu.id_usuario_pk, usu.correo_usuario,
-                            (SUBSTR(TRIM(usu.nombres_usuario), 1, INSTR(TRIM(usu.nombres_usuario) || ' ', ' ') - 1) || ' ' || 
-                            SUBSTR(TRIM(usu.apellidos_usuario), 1, INSTR(TRIM(usu.apellidos_usuario) || ' ', ' ') - 1)) as usuLogueado,
-                            usu.clave_usuario, rl.nombre_rol, rl.id_rol_pk		  
+                    $query = "SELECT
+                                usu.id_usuario_pk,
+                                usu.correo_usuario,
+                                CONCAT(
+                                    SUBSTRING_INDEX(TRIM(usu.nombres_usuario), ' ', 1),
+                                    ' ',
+                                    SUBSTRING_INDEX(TRIM(usu.apellidos_usuario), ' ', 1)
+                                ) AS usuLogueado,
+                                usu.clave_usuario,
+                                rl.nombre_rol,
+                                rl.id_rol_pk
                             FROM usuarios usu
                             INNER JOIN roles rl ON rl.id_rol_pk = usu.id_rol_usuario_fk
                             WHERE usu.numero_documento_usuario = ?
                             AND usu.cod_tipo_documento_usuario_fk = ?
-                            AND usu.clave_usuario = ?";
-                    /*$resultQuery = $conexion->prepare($query);
-                    $resultQuery->bind_param("ss", $correoUsu, $claveUsu);
+                            AND usu.clave_usuario = ?;";
+                    $resultQuery = $conexion->prepare($query);
+                    $resultQuery->bind_param("sss", $documentoUsu, $tipoDocUsu, $claveUsu);
                     $resultQuery->execute();
                     $vector = $resultQuery->get_result();
                     while ($datos_fila = $vector->fetch_assoc()) {
-                        session_regenerate_id(true);
-                        $_SESSION = array();
-                        $_SESSION['idUsuarioSesion'] = $datos_fila['idUsuario'];
-                        $_SESSION['correoUsuSesion'] = $datos_fila['correoUsuario'];
-                        $_SESSION['idrolSesion'] = $datos_fila['idRol'];
-                        $_SESSION['nombreRolSesion'] = $datos_fila['nombreRol'];
-                        $_SESSION['loginUsuSesion'] = $datos_fila['usuLogueado'];
-                        $estado = '1';
-                    }
-                    echo $estado;
-                    $resultQuery->close();*/
-                    $resultQuery = $conexion->prepare($query);
-                    // En PDO, los parámetros se pasan en un array directamente dentro de execute()
-                    $resultQuery->execute([$documentoUsu, $tipoDocUsu,  $claveUsu]);
-                    // Recorrer los resultados utilizando el método nativo de PDO
-                    while ($datos_fila = $resultQuery->fetch(PDO::FETCH_ASSOC)) {
                         session_regenerate_id(true);
                         $_SESSION = array();
                         $_SESSION['idUsuarioSesion'] = $datos_fila['id_usuario_pk'];
@@ -110,7 +101,7 @@ if (realpath(__FILE__) === realpath($_SERVER["SCRIPT_FILENAME"])) {
                         $estado = '1';
                     }
                     echo $estado;
-                    $resultQuery = null; // Limpiar la variable de consulta en PDO
+                    $resultQuery->close();
                     break;
                 case 'activarUsuario':
                     echo "<br>Dentro de nueva clave.";
